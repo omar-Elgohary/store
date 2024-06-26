@@ -173,7 +173,6 @@
 
         <div class="px-5 font-Manrope grid justify-center gap-6 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3 lg:max-w-full lg:grid-cols-4 xl:grid-cols-5 mt-8 ">
             <button id="open-popup" class="fixed bottom-5 right-16">
-                <!-- <img src="image/plus.svg" alt="plus" class=""> -->
                 <img src="{{ asset('assets/image/pulss.svg')}}" alt="plus" class="">
             </button>
 

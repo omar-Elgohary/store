@@ -41,4 +41,35 @@ class DashboardController extends Controller
         $request->session()->regenerateToken();
         return redirect()->route('loginPage');
     }
+
+    public function resetPasswordPage()
+    {
+        return view('dashboard.resetPassword');
+    }
+
+    public function resetPassword(Request $request)
+    {
+        // $request->validate([
+        //     'email'            => 'required|email',
+        //     'password'         => 'required|min:8',
+        //     'confirm-password' => 'required|min:8|same:password',
+        // ]);
+
+        $admin = Admin::where('email', $request->email)->first();
+    
+        if (!$admin) {
+            return back()->with('error', 'Email Not Found');
+        }
+    
+        if ($request->password === $request->confirm_password) {
+            $admin->password = Hash::make($request->password);
+            $admin->save();
+        }else{
+            return back()->with('error', 'Password Not Match');
+        }
+    
+        return redirect()->route('login')->with('success', 'Password reset successfully');
+    }
+    
+    
 }

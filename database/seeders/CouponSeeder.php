@@ -1,50 +1,54 @@
 <?php
 namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 class CouponSeeder extends Seeder
 {
-    public function run()
+    public function run ()
     {
-        DB::table('coupons')->insert([
-            [
-                'coupon_num'      => 'QWERT' ,
-                'type'          => 'ratio',
-                'discount'      => 10,
-                'max_discount'  => 20,
-                'max_use'         => 100,
-                'use_times'   => 40,
-                'status'        => 'available',
-                'expire_date'   => \Carbon\Carbon::now()->addDays(10),
-            ] , [
-                'coupon_num'      => 'JAKA' ,
-                'type'          => 'number',
-                'discount'      => 20,
-                'max_discount'  => 20,
-                'max_use'         => 100,
-                'use_times'   => 40,
-                'status'        => 'available',
-                'expire_date'   => \Carbon\Carbon::now()->addDays(10),
-            ] , [
-                'coupon_num'      => 'UsageEnd' ,
-                'type'          => 'ratio',
-                'discount'      => 10,
-                'max_discount'  => 20,
-                'max_use'         => 100,
-                'use_times'   => 100,
-                'status'        => 'usage_end',
-                'expire_date'   => \Carbon\Carbon::now()->addDays(1),
-            ] , [
-                'coupon_num'      => 'Expire' ,
-                'type'          => 'number',
-                'discount'      => 10,
-                'max_discount'  => 10,
-                'max_use'         => 100,
-                'use_times'   => 10,
-                'status'        => 'expire',
-                'expire_date'   => \Carbon\Carbon::now(),
+        DB::table( 'coupons' )->insert( [ 
+            [ 
+                'name'        => 'QWERT',
+                'type'        => 'ratio',
+                'discount'    => 10,
+                'start_date'  => \Carbon\Carbon::now(),
+                'expire_date' => \Carbon\Carbon::now()->addDays( 5 ),
+                'minimum'     => 0,
+                'maximum'     => 5,
+                'status'      => 'available',
+            ],
+            [ 
+                'name'        => 'JAKA',
+                'type'        => 'number',
+                'discount'    => 20,
+                'start_date'  => \Carbon\Carbon::now(),
+                'expire_date' => \Carbon\Carbon::now()->addDays( 10 ),
+                'minimum'     => 0,
+                'maximum'     => 10,
+                'status'      => 'available',
+            ],
+            [ 
+                'name'        => 'UsageEnd',
+                'type'        => 'ratio',
+                'discount'    => 10,
+                'start_date'  => \Carbon\Carbon::now(),
+                'expire_date' => \Carbon\Carbon::now()->addDays( 7 ),
+                'minimum'     => 0,
+                'maximum'     => 15,
+                'status'      => 'available',
+            ],
+            [ 
+                'name'        => 'Expire',
+                'type'        => 'number',
+                'discount'    => 10,
+                'start_date'  => \Carbon\Carbon::now()->subDays( 20 ),
+                'expire_date' => \Carbon\Carbon::now()->subDay(),
+                'minimum'     => 0,
+                'maximum'     => 20,
+                'status'      => 'expire',
             ]
-        ]);
+        ] );
     }
 }

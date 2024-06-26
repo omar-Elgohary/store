@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CouponController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
 
@@ -13,6 +14,8 @@ Route::group(['prefix' => 'admin'], function()
     Route::get('login',  [DashboardController::class, 'loginPage'])->name('loginPage');
     Route::post('login', [DashboardController::class, 'login'])->name('login');
     Route::get('logout', [DashboardController::class, 'logout'])->name('logout');
+    Route::get('resetPasswordPage', [DashboardController::class, 'resetPasswordPage'])->name('resetPasswordPage');
+    Route::post('resetPassword', [DashboardController::class, 'resetPassword'])->name('resetPassword');
 
     Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
@@ -20,6 +23,11 @@ Route::group(['prefix' => 'admin'], function()
     Route::get('products', [ProductController::class, 'index'])->name('products');
     Route::post('storeProduct', [ProductController::class, 'store'])->name('store.product');
     Route::get('deleteProduct/{id}', [ProductController::class, 'delete'])->name('delete.product');
+
+    // coupons
+    Route::get('coupons', [CouponController::class, 'coupons'])->name('coupons');
+    Route::post('storeCoupon', [CouponController::class, 'storeCoupon'])->name('store.coupon');
+    Route::delete('deleteCoupon/{id}', [CouponController::class, 'deleteCoupon'])->name('delete.coupon');
 
 
 });

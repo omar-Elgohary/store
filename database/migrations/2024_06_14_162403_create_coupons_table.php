@@ -9,16 +9,15 @@ class CreateCouponsTable extends Migration
     {
         Schema::create('coupons', function (Blueprint $table) {
             $table->id();
-            $table->string('coupon_num');
+            $table->string('name');
             $table->enum('type', ['ratio', 'number']);
             $table->double('discount');
-            $table->double('max_discount')->nullable();
-            $table->dateTime('expire_date')->nullable();
-
-            $table->integer('max_use');
-            $table->integer('use_times')->default(0);
-            $table->enum('status', ['available', 'expire' , 'usage_end' , 'closed']);
-
+            $table->dateTime('start_date');
+            $table->dateTime('expire_date');
+            $table->integer('minimum')->nullable();
+            $table->integer('maximum')->nullable();
+            $table->enum('status', ['available', 'expire'])->default('available');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -16,13 +16,13 @@
         <li class="mb-3"><a href="BackgroundDash.html" class=" hover:text-[#FDC031] flex items-center gap-2">
             <i class="fa-solid fa-images"></i>
             theme</a></li>
-        <li class="mb-3"><a href="discount.html" class=" hover:text-[#FDC031] flex items-center gap-2">
+        <li class="mb-3"><a href="{{route('coupons')}}" class=" hover:text-[#FDC031] flex items-center gap-2">
           <i class="fa-solid fa-ticket"></i>
             coupon</a></li>
         <li class="mb-3"><a href="submitDash.html" class="flex items-center gap-2 hover:text-[#FDC031]">
             <i class="fa-solid fa-user"></i>
             submit</a></li>
-        <li class="mb-3"><a href="resetpassword.html" class="flex items-center gap-2 hover:text-[#FDC031]">
+        <li class="mb-3"><a href="{{route('resetPasswordPage')}}" class="flex items-center gap-2 hover:text-[#FDC031]">
             <i class="fa-solid fa-unlock-keyhole"></i>
             Reset Password</a></li>
       </ul>
