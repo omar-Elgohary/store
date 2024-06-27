@@ -24,10 +24,17 @@ Route::group(['prefix' => 'admin'], function()
     Route::post('storeProduct', [ProductController::class, 'store'])->name('store.product');
     Route::get('deleteProduct/{id}', [ProductController::class, 'delete'])->name('delete.product');
 
+    // orders
+
+    //themes
+    Route::get('backgrounds', [DashboardController::class, 'backgrounds'])->name('backgrounds');
+    Route::post('changeBackground', [DashboardController::class, 'changeBackground'])->name('changeBackground');
+
     // coupons
     Route::get('coupons', [CouponController::class, 'coupons'])->name('coupons');
     Route::post('storeCoupon', [CouponController::class, 'storeCoupon'])->name('store.coupon');
     Route::delete('deleteCoupon/{id}', [CouponController::class, 'deleteCoupon'])->name('delete.coupon');
 
-
+    //contact-us
+    Route::get('contactMessages', [DashboardController::class, 'contactMessages'])->name('contactMessages');
 });

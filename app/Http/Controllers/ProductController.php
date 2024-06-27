@@ -57,8 +57,10 @@ class ProductController extends Controller
 
             if ($request->has('images')) {
                 foreach ($request->file('images') as $image) {
-                    $path = $image->store('public/products');
-                    $product->images()->create(['image' => time() . '.' . $image->getClientOriginalExtension()]);
+                    $imageName = time() . '.' . $image->getClientOriginalExtension();
+                    $image->move(public_path('products'), $imageName); // Save to public path
+
+                    $product->images()->create(['image' => $imageName]);
                 }
             }
 
