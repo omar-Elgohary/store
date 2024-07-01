@@ -1,8 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\Admin;
+use App\Models\Submit;
 use App\Models\Background;
-use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -112,9 +112,9 @@ class DashboardController extends Controller
         return redirect()->route('login')->with('success', 'Password reset successfully');
     }
 
-    public function contactMessages()
+    public function submits()
     {
-        $messages = ContactUs::get();
-        return view('dashboard.contact.index', get_defined_vars());
+        $submits = Submit::get();
+        return view('dashboard.submits.index', get_defined_vars());
     }
 }

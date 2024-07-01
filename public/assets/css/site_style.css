@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    background-color: #e5e5e9;
+  }
+
+  .radio-hidden {
+    @apply hidden;
+  }
+
+  .radio-label::before {
+    content: "";
+    @apply w-8 h-8 rounded-full border-2 border-gray-700 bg-white transition-colors duration-300;
+  }
+
+  .radio-label::after {
+    content: "";
+    @apply w-2 h-2 rounded-full bg-[#39D151] absolute top-1/2 left-[16px] transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300;
+  }
+
+  .radio-hidden:checked + .radio-label::before {
+    @apply bg-[#09080B] border-[#09080B];
+  }
+
+  .radio-hidden:checked + .radio-label::after {
+    @apply opacity-100;
+  }
+
+  .radio-label span {
+    @apply text-[#474749];
+    transition: color 0.3s;
+  }
+
+  .radio-hidden:checked + .radio-label span {
+    @apply text-[#09080B];
+  }
+
+  .font-manrope {
+    font-family: "Manrope", sans-serif;
+  }
+}
+
+body {
+  font-family: "Manrope";
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #474749;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #474749;
+  background: linear-gradient(#fdc031, #fdc031);
+  /* border-radius: 1px; */
+}
+
+.ar {
+  direction: rtl;
+}

@@ -19,7 +19,7 @@
         <li class="mb-3"><a href="{{route('coupons')}}" class=" hover:text-[#FDC031] flex items-center gap-2">
           <i class="fa-solid fa-ticket"></i>
             coupon</a></li>
-        <li class="mb-3"><a href="{{route('contactMessages')}}" class="flex items-center gap-2 hover:text-[#FDC031]">
+        <li class="mb-3"><a href="{{route('submits')}}" class="flex items-center gap-2 hover:text-[#FDC031]">
             <i class="fa-solid fa-user"></i>
             submit</a></li>
         <li class="mb-3"><a href="{{route('resetPasswordPage')}}" class="flex items-center gap-2 hover:text-[#FDC031]">

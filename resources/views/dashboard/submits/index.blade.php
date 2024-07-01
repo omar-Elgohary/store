@@ -17,12 +17,12 @@
                 </tr>
               </thead>
 
-                @forelse($messages as $key => $message)
-                    <tbody class="bg-white font-Manrope font-medium normal-case text-[20px] ">
+                @forelse($submits as $key => $submit)
+                    <tbody class="bg-white font-Manrope font-medium normal-case text-[20px]">
                         <tr>
                             <td class="py-4 px-6 border-b border-gray-200">{{ $key+1 }}</td>
-                            <td class="py-4 px-6 border-b border-gray-200 capitalize">{{ $message->name }}</td>
-                            <td class="py-4 px-6 border-b border-gray-200 truncate">{{ $message->email }}</td>
+                            <td class="py-4 px-6 border-b border-gray-200 capitalize">{{ $submit->name }}</td>
+                            <td class="py-4 px-6 border-b border-gray-200 truncate">{{ $submit->email }}</td>
                             <td class="py-4 px-6 border-b border-gray-200">
                                 <span class="bg-red-500 text-white py-1 px-3 rounded-full  text-[18px] capitalize">delete</span>
                             </td>

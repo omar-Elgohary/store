@@ -1,14 +1,29 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\SiteController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
 
+// site
 Route::get('/', function () {
-    return view('welcome');
+    return view('site.index');
 })->name('home');
 
+// contact-us
+Route::get('ContactUs', [SiteController::class, 'ContactUs'])->name('ContactUs');
+Route::post('sendContactUs', [SiteController::class, 'sendContactUs'])->name('sendContactUs');
 
+// about-us
+Route::get('aboutUs', [SiteController::class, 'aboutUs'])->name('aboutUs');
+Route::post('sendSubmit', [SiteController::class, 'sendSubmit'])->name('sendSubmit');
+
+// cart
+Route::get('cart', [CartController::class, 'cart'])->name('cart');
+
+
+// admin
 Route::group(['prefix' => 'admin'], function()
 {
     Route::get('login',  [DashboardController::class, 'loginPage'])->name('loginPage');
@@ -36,5 +51,5 @@ Route::group(['prefix' => 'admin'], function()
     Route::delete('deleteCoupon/{id}', [CouponController::class, 'deleteCoupon'])->name('delete.coupon');
 
     //contact-us
-    Route::get('contactMessages', [DashboardController::class, 'contactMessages'])->name('contactMessages');
+    Route::get('submits', [DashboardController::class, 'submits'])->name('submits');
 });
